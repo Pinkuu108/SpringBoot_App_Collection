@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project &apos;Intervire_Based_Coding&apos; to &apos;Interview_Based_Coding&apos;&#x0D;&#x0A;- Original element: &apos;Intervire_Based_Coding&apos;&#x0D;&#x0A;- Renamed element: &apos;Intervire_Based_Coding&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename Java project &apos;Intervire_Based_Coding&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=Intervire_Based_Coding" name="Interview_Based_Coding" references="true" stamp="1763787956614" version="1.0"/>
+</session>

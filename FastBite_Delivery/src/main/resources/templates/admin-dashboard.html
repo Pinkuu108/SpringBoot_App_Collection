@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Dashboard - Fastbite Helpdesk</title>
+</head>
+<body>
+
+<div>
+    <span th:if="${session.loggedInUser != null && session.loggedInUser.role == 'ADMIN'}">
+        Hello, <span th:text="${session.loggedInUser.name}"></span> (Admin) |
+        <a th:href="@{/}">Home</a> |
+        <a th:href="@{/admin/dashboard}">Admin Dashboard</a> |
+        <a th:href="@{/admin/users}">Manage Users</a> |
+        <a th:href="@{/admin/requests}">Manage Requests</a> |
+        <a th:href="@{/logout}">Logout</a>
+    </span>
+</div>
+<hr/>
+
+<h1>Admin Dashboard</h1>
+
+<h2>Users</h2>
+<ul>
+    <li>Total Users: <span th:text="${totalUsers}"></span></li>
+    <li>Total Volunteers: <span th:text="${totalVolunteers}"></span></li>
+    <li>Total Admins: <span th:text="${totalAdmins}"></span></li>
+</ul>
+
+<h2>Requests (Status)</h2>
+<ul>
+    <li>Total Requests: <span th:text="${totalRequests}"></span></li>
+    <li>Pending: <span th:text="${pendingCount}"></span></li>
+    <li>In Progress: <span th:text="${inProgressCount}"></span></li>
+    <li>Completed: <span th:text="${completedCount}"></span></li>
+    <li>Cancelled: <span th:text="${cancelledCount}"></span></li>
+</ul>
+
+<h2>Requests by Category</h2>
+<ul>
+    <li>Food: <span th:text="${foodCount}"></span></li>
+    <li>Medicine: <span th:text="${medicineCount}"></span></li>
+    <li>Study: <span th:text="${studyCount}"></span></li>
+    <li>Other: <span th:text="${otherCount}"></span></li>
+</ul>
+
+<p>
+    <a th:href="@{/admin/users}">Go to Manage Users</a> |
+    <a th:href="@{/admin/requests}">Go to Manage Requests</a>
+</p>
+
+</body>
+</html>

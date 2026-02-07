@@ -1,0 +1,20 @@
+package Daily_Practice_Coding;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+public class Daily_Practice_Question {
+
+	public static void main(String[] args) {
+
+		int a[]= {1,23,4,5,1,7,2,2,2,2,2,2,3,4,4,5,56,6,0};
+		
+		HashSet<Integer> s=new HashSet<Integer>();
+		for(int i=0;i<a.length;i++)
+		{
+			s.addAll(s[i]);
+		}
+		System.out.println(s);
+	}
+}

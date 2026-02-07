@@ -1,0 +1,34 @@
+class Account {
+
+    private int balance = 1000;
+    private final Lock lock = new ReentrantLock();
+
+    public void withdraw(int amount) {
+        System.out.println(Thread.currentThread().getName() + " is attempting to withdraw");
+
+        boolean isLocked = false;
+        try {
+            isLocked = lock.tryLock(3, TimeUnit.SECONDS);
+
+            if (isLocked) {
+                if (balance >= amount) {
+                    Thread.sleep(1000);
+                    balance -= amount;
+                    System.out.println(Thread.currentThread().getName()
+                            + " withdrawal successful. Available balance: " + balance);
+                } else {
+                    System.out.println(Thread.currentThread().getName() + " insufficient balance");
+                }
+            } else {
+                System.out.println(Thread.currentThread().getName() + " could not get lock, try later");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (isLocked) {
+                lock.unlock();
+            }
+        }
+    }
+}

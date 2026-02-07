@@ -1,0 +1,28 @@
+package Daily_Practice_Coding;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+public class Daily_Practice_Question {
+
+	public static void main(String[] args) {
+
+		int a[]= {1,2,3,4,5,6,7,8,9,10};
+		int small=a[0];
+		int big=a[0];
+		for(int i=0;i<a.length;i++)
+		{
+			if(big>a[i])
+			{
+				big=a[i];
+			}
+			else if(small<a[i])
+			{
+				small=a[i];
+			}
+		}
+		System.out.println("Big::"+big);
+		System.out.println("Small::"+small);
+	}
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My Requests - Fastbite Helpdesk</title>
+</head>
+<body>
+
+<!-- NAVBAR (same pattern) -->
+<div>
+    <span th:if="${session.loggedInUser == null}">
+        <a th:href="@{/}">Home</a> |
+        <a th:href="@{/register}">Register</a> |
+        <a th:href="@{/login}">Login</a> |
+        <a th:href="@{/all-requests}">All Requests</a>
+    </span>
+
+    <span th:if="${session.loggedInUser != null && session.loggedInUser.role == 'USER'}">
+        Hello, <span th:text="${session.loggedInUser.name}"></span> (User) |
+        <a th:href="@{/}">Home</a> |
+        <a th:href="@{/new-request}">New Request</a> |
+        <a th:href="@{/my-requests}">My Requests</a> |
+        <a th:href="@{/all-requests}">All Requests</a> |
+        <a th:href="@{/logout}">Logout</a>
+    </span>
+
+    <span th:if="${session.loggedInUser != null && session.loggedInUser.role == 'VOLUNTEER'}">
+        Hello, <span th:text="${session.loggedInUser.name}"></span> (Volunteer) |
+        <a th:href="@{/}">Home</a> |
+        <a th:href="@{/volunteer/pending-requests}">Pending Requests</a> |
+        <a th:href="@{/volunteer/my-accepted-requests}">My Accepted Requests</a> |
+        <a th:href="@{/all-requests}">All Requests</a> |
+        <a th:href="@{/logout}">Logout</a>
+    </span>
+
+    <span th:if="${session.loggedInUser != null && session.loggedInUser.role == 'ADMIN'}">
+        Hello, <span th:text="${session.loggedInUser.name}"></span> (Admin) |
+        <a th:href="@{/}">Home</a> |
+        <a th:href="@{/admin/dashboard}">Admin Dashboard</a> |
+        <a th:href="@{/admin/users}">Manage Users</a> |
+        <a th:href="@{/admin/requests}">Manage Requests</a> |
+        <a th:href="@{/logout}">Logout</a>
+    </span>
+</div>
+<hr/>
+
+<h1>My Requests</h1>
+
+<!-- success message -->
+<div th:if="${message}" style="padding:8px; background:#e0ffe0; border:1px solid #8bc34a; margin-bottom:10px;">
+    <span th:text="${message}"></span>
+</div>
+
+<table border="1" cellpadding="6">
+    <tr>
+        <th>Request ID</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Created On</th>
+        <th>Assigned Volunteer</th>
+    </tr>
+
+    <tr th:each="req : ${requests}">
+        <td th:text="${req.id}"></td>
+        <td th:text="${req.category}"></td>
+        <td th:text="${req.description}"></td>
+        <td th:text="${req.status}"></td>
+        <td th:text="${#temporals.format(req.createdTime, 'dd-MM-yyyy HH:mm')}"></td>
+        <td th:text="${req.assignedVolunteer != null ? req.assignedVolunteer.name : 'Not Assigned'}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+package Daily_Practice_Coding;
+
+import java.util.Arrays;
+
+public class Daily_Practice_Question {
+
+	public static void main(String[] args) {
+            int a[]= {1,5,4,7,8,9,2,45,77,9};
+            int num=3;
+            
+            for(int i=0;i<a.length;i++)
+            {
+            	if(num==a[i])
+            	{
+            		System.out.println("Number is Present in index::"+i);
+            	}
+            }
+            
+		
+	}
+}

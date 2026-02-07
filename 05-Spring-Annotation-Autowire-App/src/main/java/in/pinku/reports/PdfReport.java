@@ -1,0 +1,14 @@
+package in.pinku.reports;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class PdfReport implements IReport{
+
+	@Override
+	public void generateReport() {
+		System.out.println("PdfReport Gererate");
+		
+	}
+
+}

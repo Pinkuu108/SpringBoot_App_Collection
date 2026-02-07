@@ -1,0 +1,11 @@
+INDEX VERSION 1.134
+D:\Springcore\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1264765155.index
+\25_Clint_Version_ERAIL\src\main\java
+D:\Springcore\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1727510936.index
+\13-WbMvc_App1\src\main\java
+D:\Springcore\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3746752001.index
+\14-WbMvc_App2\src\main\java
+D:\Springcore\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3333471818.index
+\15-WbMvc_App3-1\src\main\java
+D:\Springcore\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3402930631.index
+\16-WbMvc-Student_Info\src\main\java

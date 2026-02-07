@@ -1,0 +1,18 @@
+package Interview_Related_Code;
+
+public class Reverse_WholeString_Stringbuilder {
+
+	public static void main(String[] args) {
+		String s = "welcome to java";
+		String word[] = s.split(" ");
+		String reversestring = "";
+		for (String str : word) {
+
+			StringBuilder sb = new StringBuilder(str);
+			sb.reverse();
+			reversestring = reversestring + sb.toString() + " ";
+
+		}
+		System.out.println("Reverse_WholeString_Stringbuilder.main()::"+reversestring);
+	}
+}

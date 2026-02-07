@@ -1,0 +1,19 @@
+package Daily_Practice_Coding;
+
+import java.util.Arrays;
+
+public class Daily_Practice_Question {
+
+	public static void main(String[] args) {
+		int num = 123;
+
+		int rev = 0;
+		while (num != 0) {
+			int temp = num % 10;
+			rev = rev + temp;
+			num = num / 10;
+
+		}
+		System.out.println("Reverse Number is ::" + rev);
+	}
+}

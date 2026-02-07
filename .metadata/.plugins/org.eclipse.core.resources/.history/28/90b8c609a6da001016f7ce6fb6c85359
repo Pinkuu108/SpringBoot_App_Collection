@@ -1,0 +1,13 @@
+package Daily_Practice_Coding;
+
+import java.util.Arrays;
+
+public class Daily_Practice_Question {
+
+	public static void main(String[] args) {
+
+		String s = "!@#$% pinkuna @@";
+		s = s.replaceAll( "[^a_zA_Z0_9]"," ");
+		System.out.println(s);
+	}
+}

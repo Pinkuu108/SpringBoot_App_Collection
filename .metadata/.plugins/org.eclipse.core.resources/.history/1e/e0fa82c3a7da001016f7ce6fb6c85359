@@ -1,0 +1,22 @@
+package Daily_Practice_Coding;
+
+import java.util.Arrays;
+
+public class Daily_Practice_Question {
+
+	public static void main(String[] args) {
+
+		String s[]={"java","c","python","java","c","go"};
+		for(int i=0;i<s.length;i++)
+		{
+			for(int j=i+1;j<s.length;j++)
+			{
+				if(s[i].equals(s[j]))
+				{
+					System.out.println("Duplicate String  ::"+s[j]);
+				}
+			}
+		}
+		
+	}
+}

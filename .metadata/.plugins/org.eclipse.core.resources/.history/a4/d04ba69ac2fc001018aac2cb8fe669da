@@ -1,0 +1,45 @@
+package Daily_Practice_Coding;
+class Account{
+	
+       int balance=1000;
+	public void withdraw(int amount) 
+	{
+		System.out.println(Thread.currentThread().getName()+"Attempting to Withdraw....");
+	if(amount<balance)
+	{
+		System.out.println(Thread.currentThread().getName()+"Processing payment....");
+	
+	try {
+		Thread.sleep(3000);
+	}catch (Exception e) {
+		
+	}
+	balance-=amount;
+	System.out.println(Thread.currentThread().getName()+"Completed Withdraw process....");
+	}
+	else {
+		System.out.println(Thread.currentThread().getName()+"Insufficeat Balance....");
+	}
+	}
+}
+
+public class Synchronised_Lock {
+	
+	public static void main(String[] args) {
+		Account a=new Account();
+		Runnable r=new Runnable() {
+			
+			@Override
+			public void run() {
+				a.withdraw(100);
+				
+			}
+		};
+		Thread t1=new Thread(r,"Thread 1");
+		Thread t2=new Thread(r,"Thread 2");
+		t1.start();
+		t2.start();
+	}
+
+	
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;in.pinkurerpository&apos; to &apos;in.pinku.rerpository&apos;&#x0D;&#x0A;- Original project: &apos;06-Springboot-DATA_JPA-App-3&apos;&#x0D;&#x0A;- Original element: &apos;06-Springboot-DATA_JPA-App-3/src/main/java/in.pinkurerpository&apos;&#x0D;&#x0A;- Renamed element: &apos;06-Springboot-DATA_JPA-App-3/src/main/java/in.pinku.rerpository&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;in.pinkurerpository&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;in.pinkurerpository" name="in.pinku.rerpository" qualified="false" references="true" stamp="1760353364153" textual="false" version="1.0"/>
+</session>

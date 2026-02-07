@@ -1,0 +1,26 @@
+package Daily_Practice_Coding;
+
+import java.util.Arrays;
+
+public class Daily_Practice_Question {
+
+	public static void main(String[] args) {
+		int a[]= {1,2,3,4,5,67,8,9,0};
+		int largest=a[0];
+		int secondlar=a[0];
+		
+		for(int i=0;i<a.length;i++)
+		{
+			if(largest<a[i])
+			{
+				secondlar=largest;
+				largest=a[i];
+			}
+			else if (a[i]>secondlar&& largest!=secondlar)
+			{
+				secondlar=a[i];
+			}
+		}
+		System.out.println(secondlar);
+	}
+}

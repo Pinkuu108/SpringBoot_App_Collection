@@ -1,0 +1,46 @@
+package in.pinku;
+
+import java.time.LocalDate;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+import in.pinku.entity.Passport;
+import in.pinku.entity.Person;
+import in.pinku.reposatory.PassportReposatory;
+import in.pinku.reposatory.personReposatory;
+
+@SpringBootApplication
+public class Application {
+
+    private final PassportReposatory passportReposatory;
+
+    Application(PassportReposatory passportReposatory) {
+        this.passportReposatory = passportReposatory;
+    }
+
+	public static void main(String[] args) {
+		ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
+		
+		personReposatory personrepo = context.getBean(personReposatory.class);
+		PassportReposatory passportrepo = context.getBean(PassportReposatory.class);
+		
+		Person per=new Person();
+		per.setPersonname("Lizun");
+		per.setPersonGender("Female");
+		
+		
+		Passport pass=new Passport();
+		pass.setIssueDate(LocalDate.now());
+		pass.setExparyDate(LocalDate.now().plusYears(10));
+		pass.setPassportNo("PK34KJHS");
+		
+		per.setPassport(pass);
+		pass.setPerson(per);
+		
+		personrepo.save(per);
+		System.out.println("Record Inserted......");
+	}
+
+}

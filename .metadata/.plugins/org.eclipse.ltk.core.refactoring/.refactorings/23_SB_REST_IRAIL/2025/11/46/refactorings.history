@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;BusTicket.java&apos; to &apos;24_SB_REST_IRAIL-2/src/main/java/in.pinku.response&apos;&#x0D;&#x0A;- Original project: &apos;23_SB_REST_IRAIL&apos;&#x0D;&#x0A;- Destination element: &apos;24_SB_REST_IRAIL-2/src/main/java/in.pinku.response&apos;&#x0D;&#x0A;- Original element: &apos;in.pinku.response.BusTicket.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="=24_SB_REST_IRAIL-2/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;in.pinku.response" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;in.pinku.response{BusTicket.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1762695925133" units="1" version="1.0"/>
+</session>

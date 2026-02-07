@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Help Request - Fastbite Helpdesk</title>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div>
+    <span th:if="${session.loggedInUser == null}">
+        <a th:href="@{/}">Home</a> |
+        <a th:href="@{/register}">Register</a> |
+        <a th:href="@{/login}">Login</a> |
+        <a th:href="@{/all-requests}">All Requests</a>
+    </span>
+
+    <span th:if="${session.loggedInUser != null && session.loggedInUser.role == 'USER'}">
+        Hello, <span th:text="${session.loggedInUser.name}"></span> (User) |
+        <a th:href="@{/}">Home</a> |
+        <a th:href="@{/new-request}">New Request</a> |
+        <a th:href="@{/my-requests}">My Requests</a> |
+        <a th:href="@{/all-requests}">All Requests</a> |
+        <a th:href="@{/logout}">Logout</a>
+    </span>
+
+    <span th:if="${session.loggedInUser != null && session.loggedInUser.role == 'VOLUNTEER'}">
+        Hello, <span th:text="${session.loggedInUser.name}"></span> (Volunteer) |
+        <a th:href="@{/}">Home</a> |
+        <a th:href="@{/volunteer/pending-requests}">Pending Requests</a> |
+        <a th:href="@{/volunteer/my-accepted-requests}">My Accepted Requests</a> |
+        <a th:href="@{/all-requests}">All Requests</a> |
+        <a th:href="@{/logout}">Logout</a>
+    </span>
+
+    <span th:if="${session.loggedInUser != null && session.loggedInUser.role == 'ADMIN'}">
+        Hello, <span th:text="${session.loggedInUser.name}"></span> (Admin) |
+        <a th:href="@{/}">Home</a> |
+        <a th:href="@{/admin/dashboard}">Admin Dashboard</a> |
+        <a th:href="@{/admin/users}">Manage Users</a> |
+        <a th:href="@{/admin/requests}">Manage Requests</a> |
+        <a th:href="@{/logout}">Logout</a>
+    </span>
+</div>
+<hr/>
+
+<h1>Create New Help Request</h1>
+
+<form th:action="@{/save-request}" th:object="${helpRequest}" method="post">
+
+    <label>Name:</label><br>
+    <input type="text" th:field="*{name}" /><br>
+    <span th:if="${#fields.hasErrors('name')}"
+          th:errors="*{name}" style="color:red"></span>
+    <br><br>
+
+    <label>Phone:</label><br>
+    <input type="text" th:field="*{phone}" /><br>
+    <span th:if="${#fields.hasErrors('phone')}"
+          th:errors="*{phone}" style="color:red"></span>
+    <br><br>
+
+    <label>Category:</label><br>
+    <select th:field="*{category}">
+        <option value="" disabled>-- Select Category --</option>
+        <option value="Food">Food</option>
+        <option value="Medicine">Medicine</option>
+        <option value="Study">Study</option>
+        <option value="Other">Other</option>
+    </select><br>
+    <span th:if="${#fields.hasErrors('category')}"
+          th:errors="*{category}" style="color:red"></span>
+    <br><br>
+
+    <label>Description:</label><br>
+    <textarea th:field="*{description}" rows="4" cols="40"></textarea><br>
+    <span th:if="${#fields.hasErrors('description')}"
+          th:errors="*{description}" style="color:red"></span>
+    <br><br>
+
+    <button type="submit">Submit Request</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+package in.pinku.reposatory;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface personReposatory extends JpaRepository<Person, Integer> {
+
+}

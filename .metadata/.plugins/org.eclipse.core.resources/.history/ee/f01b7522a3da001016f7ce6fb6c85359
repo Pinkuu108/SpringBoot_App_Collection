@@ -1,0 +1,11 @@
+package Daily_Practice_Coding;
+
+import java.util.Arrays;
+
+public class Daily_Practice_Question {
+
+	public static void main(String[] args) {
+		int num=123;
+		for(int i=0;i<num)
+	}
+}

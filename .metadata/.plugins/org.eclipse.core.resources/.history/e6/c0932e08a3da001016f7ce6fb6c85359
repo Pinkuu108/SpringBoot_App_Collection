@@ -1,0 +1,16 @@
+package Daily_Practice_Coding;
+
+import java.util.Arrays;
+
+public class Daily_Practice_Question {
+
+	public static void main(String[] args) {
+		String s = "pinkuna";
+		String rev = "";
+		for (int i = s.length() - 1; i >= 0; i--) {
+			rev += s.charAt(i);
+
+		}
+		System.out.println("Reverse String is ::" + rev);
+	}
+}

@@ -1,0 +1,34 @@
+package java8;
+class Studentpk
+{
+	int id;
+	String name;
+	String password;
+	long Salary;
+	Studentpk(int id,String name,String password, long Salary)
+	{
+		this.id=id;
+		this.name=name;
+		this.password=password;
+		this.Salary=Salary;
+	}
+//	public Student(int id, String name, String password, long salary) {
+//		super();
+//		this.id = id;
+//		this.name = name;
+//		this.password = password;
+//		Salary = salary;
+//	}
+	
+}
+interface myinter
+{
+	public Student get(int id,String name,String password, long Salary);
+}
+
+public class Constructor_Referencees_2 {
+
+	public static void main(String[] args) {
+		
+	}
+}

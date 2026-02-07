@@ -1,0 +1,20 @@
+package Interview_Related_Code;
+
+public class Reverse_WholeString {
+
+	public static void main(String[] args) {
+		String s="welcome to java";
+		String word[]=s.split(" ");
+		String reverseString="";
+		
+		for (String str : word) {
+			String reverseWord="";
+			for(int i=str.length()-1;i>=0;i--)
+			{
+				reverseWord=reverseWord+str.charAt(i);
+			}
+			reverseString=reverseString+reverseWord;
+		}
+		System.out.println("Reverse_WholeString.main()::"+reverseString);
+	}
+}

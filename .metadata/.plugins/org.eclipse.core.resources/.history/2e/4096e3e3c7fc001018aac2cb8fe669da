@@ -1,0 +1,44 @@
+package Daily_Practice_Coding;
+
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+class Account {
+
+	private int balance = 1000;
+	private final Lock lock=new ReentrantLock();
+
+	public synchronized void withdraw(int amount) {
+		if(lock.tryLock(3000, TimeUnit.MILLISECONDS))
+		{
+			System.out.println(Thread.currentThread().getName()+"Processing payment....");
+			try {
+				System.out.println(Thread.currentThread().getName()+" payment....");
+				
+			}
+			
+		}else {
+			System.out.println(Thread.currentThread().getName()+"Thread is not Available , Visit after ....");
+		}
+	}
+}
+
+public class Synchronised_Lock {
+
+	public static void main(String[] args) {
+		Account a = new Account();
+		Runnable r = new Runnable() {
+
+			@Override
+			public void run() {
+				a.withdraw(100);
+
+			}
+		};
+		Thread t1 = new Thread(r, "Thread 1 ");
+		Thread t2 = new Thread(r, "Thread 2 ");
+		t1.start();
+		t2.start();
+	}
+}

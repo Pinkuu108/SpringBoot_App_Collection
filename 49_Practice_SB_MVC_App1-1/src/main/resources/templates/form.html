@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Student Form</h1>
+	<form action="/submit" method="post">
+		Name: <input type="text" name="name"><br>
+		<br> Dept: <input type="text" name="dept"><br>
+		<br> Salary: <input type="text" name="salary"><br>
+		<br>
+
+		<button type="submit">Submit</button>
+
+
+	</form>
+	<hr>
+	<h2>Saved Students</h2>
+	<table border="1">
+
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Dept</th>
+			<th>Salary</th>
+
+		</tr>
+
+		<tr th:each="s : ${students}">
+			<td th:text="${s.id}"></td>
+			<td th:text="${s.name}"></td>
+			<td th:text="${s.dept}"></td>
+			<td th:text="${s.salary}"></td>
+
+
+
+		</tr>
+
+
+	</table>
+
+</body>
+</html>

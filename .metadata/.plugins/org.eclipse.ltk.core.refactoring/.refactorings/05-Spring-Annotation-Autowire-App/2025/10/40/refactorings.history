@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;in.pinku.service&apos; to &apos;in.pinku.reports&apos;&#x0D;&#x0A;- Original project: &apos;05-Spring-Annotation-Autowire-App&apos;&#x0D;&#x0A;- Original element: &apos;05-Spring-Annotation-Autowire-App/src/main/java/in.pinku.service&apos;&#x0D;&#x0A;- Renamed element: &apos;05-Spring-Annotation-Autowire-App/src/main/java/in.pinku.reports&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;in.pinku.service&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;in.pinku.service" name="in.pinku.reports" qualified="false" references="true" stamp="1759516292985" textual="false" version="1.0"/>
+</session>

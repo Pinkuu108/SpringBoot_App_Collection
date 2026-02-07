@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>HelpingHand – Community Help Platform</title>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div>
+    <!-- NOT LOGGED IN -->
+    <span th:if="${session.loggedInUser == null}">
+        <a th:href="@{/}">Home</a> |
+        <a th:href="@{/register}">Register</a> |
+        <a th:href="@{/login}">Login</a> |
+        <a th:href="@{/all-requests}">All Requests</a>
+    </span>
+
+    <!-- USER -->
+    <span th:if="${session.loggedInUser != null && session.loggedInUser.role == 'USER'}">
+        Hello, <span th:text="${session.loggedInUser.name}"></span> (User) |
+        <a th:href="@{/}">Home</a> |
+        <a th:href="@{/new-request}">New Request</a> |
+        <a th:href="@{/my-requests}">My Requests</a> |
+        <a th:href="@{/all-requests}">All Requests</a> |
+        <a th:href="@{/logout}">Logout</a>
+    </span>
+
+    <!-- VOLUNTEER -->
+    <span th:if="${session.loggedInUser != null && session.loggedInUser.role == 'VOLUNTEER'}">
+        Hello, <span th:text="${session.loggedInUser.name}"></span> (Volunteer) |
+        <a th:href="@{/}">Home</a> |
+        <a th:href="@{/volunteer/pending-requests}">Pending Requests</a> |
+        <a th:href="@{/volunteer/my-accepted-requests}">My Accepted Requests</a> |
+        <a th:href="@{/all-requests}">All Requests</a> |
+        <a th:href="@{/logout}">Logout</a>
+    </span>
+
+    <!-- ADMIN -->
+    <span th:if="${session.loggedInUser != null && session.loggedInUser.role == 'ADMIN'}">
+        Hello, <span th:text="${session.loggedInUser.name}"></span> (Admin) |
+        <a th:href="@{/}">Home</a> |
+        <a th:href="@{/admin/dashboard}">Admin Dashboard</a> |
+        <a th:href="@{/admin/users}">Manage Users</a> |
+        <a th:href="@{/admin/requests}">Manage Requests</a> |
+        <a th:href="@{/logout}">Logout</a>
+    </span>
+</div>
+<hr/>
+
+<!-- MAIN CONTENT -->
+<div th:if="${session.loggedInUser == null}">
+    <h1>HelpingHand – Community Help Platform</h1>
+    <h3>People who need help connect with people who want to help.</h3>
+
+    <p>
+        Anyone can request help for food, medicine, study support and more.
+        Volunteers nearby can see pending requests and accept them.
+        Admins keep the system safe and clean.
+    </p>
+
+    <p>
+        <a th:href="@{/register}">Create Help Request (Register)</a><br/>
+        <a th:href="@{/login}">Login</a><br/>
+        <a th:href="@{/all-requests}">View All Help Requests</a>
+    </p>
+</div>
+
+<div th:if="${session.loggedInUser != null}">
+    <h1>Welcome, <span th:text="${session.loggedInUser.name}"></span>!</h1>
+    <h3>Your role: <span th:text="${session.loggedInUser.role}"></span></h3>
+
+    <!-- USER actions -->
+    <div th:if="${session.loggedInUser.role == 'USER'}">
+        <p><a th:href="@{/new-request}">Create New Help Request</a></p>
+        <p><a th:href="@{/my-requests}">My Requests</a></p>
+        <p><a th:href="@{/all-requests}">All Requests</a></p>
+    </div>
+
+    <!-- VOLUNTEER actions -->
+    <div th:if="${session.loggedInUser.role == 'VOLUNTEER'}">
+        <p><a th:href="@{/volunteer/pending-requests}">View Pending Requests</a></p>
+        <p><a th:href="@{/volunteer/my-accepted-requests}">My Accepted Requests</a></p>
+        <p><a th:href="@{/all-requests}">All Requests</a></p>
+    </div>
+
+    <!-- ADMIN actions -->
+    <div th:if="${session.loggedInUser.role == 'ADMIN'}">
+        <p><a th:href="@{/admin/dashboard}">Go to Admin Dashboard</a></p>
+        <p><a th:href="@{/admin/users}">Manage Users</a></p>
+        <p><a th:href="@{/admin/requests}">Manage Requests</a></p>
+    </div>
+</div>
+
+</body>
+</html>

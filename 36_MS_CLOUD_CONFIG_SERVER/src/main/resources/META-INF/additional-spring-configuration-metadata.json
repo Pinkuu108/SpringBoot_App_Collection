@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "clone-on-start",
+  "type": "java.lang.String",
+  "description": "A description for 'clone-on-start'"
+}]}

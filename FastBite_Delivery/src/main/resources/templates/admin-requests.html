@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Manage Requests - Admin</title>
+</head>
+<body>
+
+<div>
+    <span th:if="${session.loggedInUser != null && session.loggedInUser.role == 'ADMIN'}">
+        Hello, <span th:text="${session.loggedInUser.name}"></span> (Admin) |
+        <a th:href="@{/}">Home</a> |
+        <a th:href="@{/admin/dashboard}">Admin Dashboard</a> |
+        <a th:href="@{/admin/users}">Manage Users</a> |
+        <a th:href="@{/admin/requests}">Manage Requests</a> |
+        <a th:href="@{/logout}">Logout</a>
+    </span>
+</div>
+<hr/>
+
+<h1>Manage Requests</h1>
+
+<div th:if="${message}" style="padding:8px; background:#e0ffe0; border:1px solid #8bc34a; margin-bottom:10px;">
+    <span th:text="${message}"></span>
+</div>
+
+<form th:action="@{/admin/requests}" method="get">
+    <label>Filter by Status:</label>
+    <select name="status">
+        <option value="ALL" th:selected="${selectedStatus == 'ALL'}">ALL</option>
+        <option value="PENDING" th:selected="${selectedStatus == 'PENDING'}">PENDING</option>
+        <option value="IN_PROGRESS" th:selected="${selectedStatus == 'IN_PROGRESS'}">IN_PROGRESS</option>
+        <option value="COMPLETED" th:selected="${selectedStatus == 'COMPLETED'}">COMPLETED</option>
+        <option value="CANCELLED" th:selected="${selectedStatus == 'CANCELLED'}">CANCELLED</option>
+    </select>
+    <button type="submit">Apply</button>
+</form>
+
+<br/>
+
+<table border="1" cellpadding="6">
+    <tr>
+        <th>Request ID</th>
+        <th>Requester Name</th>
+        <th>Phone</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Created On</th>
+        <th>Assigned Volunteer</th>
+        <th>Actions</th>
+    </tr>
+
+    <tr th:each="req : ${requests}">
+        <td th:text="${req.id}"></td>
+        <td th:text="${req.name}"></td>
+        <td th:text="${req.phone}"></td>
+        <td th:text="${req.category}"></td>
+        <td th:text="${req.description}"></td>
+        <td th:text="${req.status}"></td>
+        <td th:text="${#temporals.format(req.createdTime, 'dd-MM-yyyy HH:mm')}"></td>
+        <td th:text="${req.assignedVolunteer != null ? req.assignedVolunteer.name : 'Not Assigned'}"></td>
+        <td>
+            <a th:href="@{'/admin/requests/cancel'(id=${req.id})}">Cancel</a> |
+            <a th:href="@{'/admin/requests/reopen'(id=${req.id})}">Reopen</a> |
+            <a th:href="@{'/admin/requests/force-complete'(id=${req.id})}">Force Complete</a>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

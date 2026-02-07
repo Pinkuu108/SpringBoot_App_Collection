@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:fragment="layout(content)">
+<head>
+    <meta charset="UTF-8">
+    <title>GoDaddy Clone</title>
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<!-- ===== SIDEBAR OVERLAY ===== -->
+<div id="overlay" class="overlay" onclick="closeSidebar()"></div>
+
+<!-- ===== SIDEBAR ===== -->
+<aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+        <span class="logo">GoDaddy</span>
+        <span class="close-btn" onclick="closeSidebar()">✕</span>
+    </div>
+
+    <ul class="sidebar-menu">
+        <li>Domains <span>→</span></li>
+        <li>Websites <span>→</span></li>
+        <li>Email <span>→</span></li>
+        <li>Hosting <span>→</span></li>
+        <li>Marketing <span>→</span></li>
+        <li>Security <span>→</span></li>
+        <li>GoDaddy Airo®</li>
+        <li>Pricing</li>
+    </ul>
+</aside>
+
+<!-- ===== NAVBAR ===== -->
+<header class="navbar">
+    
+    <div class="nav-left">
+      <span class="hamburger" onclick="openSidebar()">&#9776;</span>
+
+        <span class="logo">GoDaddy</span>
+    </div>
+     
+     </div>
+    <nav class="nav-links">
+        <a href="#">Help</a>
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/login}">Sign In</a>
+        <a href="#">🛒</a>
+    </nav>
+</header>
+
+<!-- ===== PAGE CONTENT ===== -->
+<div th:replace="${content}"></div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <p>© 2025 GoDaddy Clone</p>
+</footer>
+
+</body>
+
+
+</html>

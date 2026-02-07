@@ -1,0 +1,43 @@
+package java8;
+class Studentpk
+{
+	int id;
+	String name;
+	String password;
+	long Salary;
+	Studentpk(int id,String name,String password, long Salary)
+	{
+		this.id=id;
+		this.name=name;
+		this.password=password;
+		this.Salary=Salary;
+	}
+	@Override
+	public String toString() {
+		return "Studentpk [id=" + id + ", name=" + name + ", password=" + password + ", Salary=" + Salary + "]";
+	}
+	
+//	public Student(int id, String name, String password, long salary) {
+//		super();
+//		this.id = id;
+//		this.name = name;
+//		this.password = password;
+//		Salary = salary;
+//	}
+	
+}
+interface myinter
+{
+	public Studentpk get(int id,String name,String password, long Salary);
+}
+
+public class Constructor_Referencees_2 {
+
+	public static void main(String[] args) {
+		
+		myinter m=Studentpk::new;
+		m.get(1, "pk", "pkck", 234);
+		System.out.println(m.getClass());
+		
+	}
+}

@@ -1,0 +1,22 @@
+package Interview_Related_Code;
+
+public class HowMany_Character2 {
+	public static void main(String[] args) {
+		String p = "hello world";
+		int f[] = new int[256];
+
+		for (int i = 0; i < p.length(); i++) {
+			char c = p.charAt(i);
+			f[c]++;
+		}
+		for (int i = 0; i < p.length(); i++) {
+			char c = p.charAt(i);
+			if(f[c]!=0)
+			{
+				System.out.println(c+"="+f[c]);
+				f[c]=0;
+			}
+		}
+	}
+
+}

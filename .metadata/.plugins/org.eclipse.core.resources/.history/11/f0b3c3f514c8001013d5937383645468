@@ -1,0 +1,12 @@
+package Interview_Related_Code;
+
+public class Reverse_WholeString {
+
+	public static void main(String[] args) {
+		String s="welcome to java";
+		String word[]=s.split(" ");
+		for (String string1 : word) {
+			System.out.println(string1);
+		}
+	}
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Manage Users - Admin</title>
+</head>
+<body>
+
+<div>
+    <span th:if="${session.loggedInUser != null && session.loggedInUser.role == 'ADMIN'}">
+        Hello, <span th:text="${session.loggedInUser.name}"></span> (Admin) |
+        <a th:href="@{/}">Home</a> |
+        <a th:href="@{/admin/dashboard}">Admin Dashboard</a> |
+        <a th:href="@{/admin/users}">Manage Users</a> |
+        <a th:href="@{/admin/requests}">Manage Requests</a> |
+        <a th:href="@{/logout}">Logout</a>
+    </span>
+</div>
+<hr/>
+
+<h1>Manage Users</h1>
+
+<div th:if="${message}" style="padding:8px; background:#e0ffe0; border:1px solid #8bc34a; margin-bottom:10px;">
+    <span th:text="${message}"></span>
+</div>
+
+<table border="1" cellpadding="6">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Role</th>
+        <th>Active</th>
+        <th>Actions</th>
+    </tr>
+
+    <tr th:each="u : ${users}">
+        <td th:text="${u.id}"></td>
+        <td th:text="${u.name}"></td>
+        <td th:text="${u.email}"></td>
+        <td th:text="${u.phone}"></td>
+        <td th:text="${u.role}"></td>
+        <td th:text="${u.active}"></td>
+        <td>
+            <span th:if="${u.active}">
+                <a th:href="@{'/admin/users/block'(id=${u.id})}">Block</a>
+            </span>
+            <span th:if="${!u.active}">
+                <a th:href="@{'/admin/users/unblock'(id=${u.id})}">Unblock</a>
+            </span>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
