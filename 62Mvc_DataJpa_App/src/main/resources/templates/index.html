@@ -1,0 +1,25 @@
+<h2 th:text="${msg}"></h2>
+
+<form th:action="@{/save}" th:object="${user}" method="post">
+    Name: <input type="text" th:field="*{name}" /><br>
+    City: <input type="text" th:field="*{city}" /><br>
+    <button type="submit">Submit</button>
+</form>
+
+<hr>
+
+<h3>Saved Users</h3>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>City</th>
+    </tr>
+
+    <tr th:each="u : ${users}">
+        <td th:text="${u.id}"></td>
+        <td th:text="${u.name}"></td>
+        <td th:text="${u.city}"></td>
+    </tr>
+</table>
